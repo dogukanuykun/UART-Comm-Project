@@ -30,7 +30,7 @@ This project contains an application for the TMS570LS20216SZWT microcontroller. 
 
 1. Clone this repository to your local machine.
     ```sh
-    [git clone https://github.com/your-username/uart-comm-project.git](https://github.com/dogukanuykun/UART-Comm-Project.git)
+    https://github.com/dogukanuykun/UART-Comm-Project.git
     ```
 2. Open the project in your preferred IDE that supports the TMS570 microcontroller development.
 3. Build and upload the project to your TMS570LS20216SZWT microcontroller.
