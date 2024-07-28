@@ -1,0 +1,412 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.4                     
+******************************************************************************
+>> Linked Thu Jul 18 16:05:42 2024
+
+OUTPUT FILE NAME:   <CGUartProject.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000020dc
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  VECTORS               00000000   00000020  00000020  00000000     X
+  FLASH0                00000020   0007ffe0  000025a8  0007da38  R  X
+  FLASH1                00080000   00080000  00000000  00080000  R  X
+  FLASH2                00100000   00080000  00000000  00080000  R  X
+  FLASH3                00180000   00080000  00000000  00080000  R  X
+  STACKS                08000000   00001500  00000000  00001500  RW  
+  RAM                   08001500   00026b00  00000045  00026abb  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000025c8   000025c8    r-x
+  00000000    00000000    00000020   00000020    r-x .intvecs
+  00000020    00000020    0000243c   0000243c    r-x .text
+  0000245c    0000245c    0000013c   0000013c    r-- .const
+  00002598    00002598    00000030   00000030    r-- .cinit
+08001500    08001500    00000048   00000000    rw-
+  08001500    08001500    00000041   00000000    rw- .bss
+  08001544    08001544    00000004   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000020     
+                  00000000    00000020     sys_intvecs.obj (.intvecs)
+
+.text      0    00000020    0000243c     
+                  00000020    00000700     sci.obj (.text:retain)
+                  00000720    00000538     sci.obj (.text)
+                  00000c58    00000460     sys_main.obj (.text)
+                  000010b8    00000440     adc.obj (.text)
+                  000014f8    000002f4     sys_core.obj (.text)
+                  000017ec    00000254     rtsv7R4_T_be_v3D16_eabi.lib : e_log.c.obj (.text:log)
+                  00001a40    000001fc     rti.obj (.text:retain)
+                  00001c3c    000001f0     system.obj (.text)
+                  00001e2c    000001e8     adc.obj (.text:retain)
+                  00002014    000000c8     gio.obj (.text:retain)
+                  000020dc    000000b0     sys_startup.obj (.text:retain)
+                  0000218c    000000ac     esm.obj (.text:retain)
+                  00002238    0000009c     rtsv7R4_T_be_v3D16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  000022d4    0000006c                                 : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00002340    00000068     notification.obj (.text)
+                  000023a8    00000044     rtsv7R4_T_be_v3D16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  000023ec    00000034     sys_memory.obj (.text)
+                  00002420    0000001c     rtsv7R4_T_be_v3D16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  0000243c    0000000e                                 : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000244a    00000002     --HOLE-- [fill = 0]
+                  0000244c    00000008                                 : errno.c.obj (.text:__aeabi_errno_addr)
+                  00002454    00000004                                 : exit.c.obj (.text:abort:abort)
+                  00002458    00000004     sys_phantom.obj (.text:retain)
+
+.const     0    0000245c    0000013c     
+                  0000245c    00000100     sys_startup.obj (.const:s_vim_init)
+                  0000255c    00000018     adc.obj (.const:s_adcFiFoSize)
+                  00002574    00000018     adc.obj (.const:s_adcSelect)
+                  0000258c    0000000c     sys_main.obj (.const:$P$T0$1)
+
+.cinit     0    00002598    00000030     
+                  00002598    0000000c     (__TI_handler_table)
+                  000025a4    00000004     --HOLE-- [fill = 0]
+                  000025a8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000025b0    00000007     (.cinit..data.load) [load image, compression = lzss]
+                  000025b7    00000001     --HOLE-- [fill = 0]
+                  000025b8    00000010     (__TI_cinit_table)
+
+.bss       0    08001500    00000041     UNINITIALIZED
+                  08001500    00000018     sci.obj (.bss:g_sciTransfer_t)
+                  08001518    00000010     (.common:adc_data)
+                  08001528    00000004     (.common:fLight)
+                  0800152c    00000004     (.common:fTemperature)
+                  08001530    00000004     (.common:light)
+                  08001534    00000004     (.common:rcvdData)
+                  08001538    00000004     (.common:temperature)
+                  0800153c    00000002     (.common:msgNum)
+                  0800153e    00000002     (.common:request)
+                  08001540    00000001     (.common:isMessageRcvd)
+
+.data      0    08001544    00000004     UNINITIALIZED
+                  08001544    00000004     rtsv7R4_T_be_v3D16_eabi.lib : errno.c.obj (.data)
+
+__llvm_prf_cnts 
+*          0    08001500    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                       code   ro data   rw data
+       ------                       ----   -------   -------
+    .\source\
+       sci.obj                      3128   0         24     
+       adc.obj                      1576   48        0      
+       sys_main.obj                 1120   12        41     
+       sys_core.obj                 756    0         0      
+       rti.obj                      508    0         0      
+       system.obj                   496    0         0      
+       sys_startup.obj              176    256       0      
+       gio.obj                      200    0         0      
+       esm.obj                      172    0         0      
+       notification.obj             104    0         0      
+       sys_memory.obj               52     0         0      
+       sys_intvecs.obj              32     0         0      
+       sys_phantom.obj              4      0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       8324   316       65     
+                                                            
+    C:/ti/ccs1030/ccs/tools/compiler/ti-cgt-arm_20.2.4.LTS/lib/rtsv7R4_T_be_v3D16_eabi.lib
+       e_log.c.obj                  596    0         0      
+       memcpy_t2.asm.obj            156    0         0      
+       copy_decompress_lzss.c.obj   108    0         0      
+       autoinit.c.obj               68     0         0      
+       copy_zero_init.c.obj         28     0         0      
+       copy_decompress_none.c.obj   14     0         0      
+       errno.c.obj                  8      0         4      
+       exit.c.obj                   4      0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       982    0         4      
+                                                            
+       Linker Generated:            0      43        0      
+    +--+----------------------------+------+---------+---------+
+       Grand Total:                 9306   359       69     
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000025b8 records: 2, size/record: 8, table size: 16
+	.bss: load addr=000025a8, load size=00000008 bytes, run addr=08001500, run size=00000041 bytes, compression=zero_init
+	.data: load addr=000025b0, load size=00000007 bytes, run addr=08001544, run size=00000004 bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00002598 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_lzss
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                
+-------   ----                                
+00002455  C$$EXIT                             
+000025b8  __TI_CINIT_Base                     
+000025c8  __TI_CINIT_Limit                    
+00002598  __TI_Handler_Table_Base             
+000025a4  __TI_Handler_Table_Limit            
+000023a9  __TI_auto_init_nobinit_nopinit      
+000022d5  __TI_decompress_lzss                
+0000243d  __TI_decompress_none                
+ffffffff  __TI_pprof_out_hndl                 
+ffffffff  __TI_prof_data_size                 
+ffffffff  __TI_prof_data_start                
+00000000  __TI_static_base__                  
+00002421  __TI_zero_init_nomemset             
+0000244d  __aeabi_errno_addr                  
+00002239  __aeabi_memcpy                      
+00002239  __aeabi_memcpy4                     
+00002239  __aeabi_memcpy8                     
+ffffffff  __binit__                           
+ffffffff  __c_args__                          
+08001500  __start___llvm_prf_cnts             
+08001500  __stop___llvm_prf_cnts              
+000020dc  _c_int00                            
+0000179c  _coreClearAuxiliaryDataFault_       
+000017b8  _coreClearAuxiliaryInstructionFault_
+00001764  _coreClearDataFaultAddress_         
+0000172c  _coreClearDataFault_                
+00001780  _coreClearInstructionFaultAddress_  
+00001748  _coreClearInstructionFault_         
+00001698  _coreDisableEventBusExport_         
+000016f4  _coreDisableFlashEcc_               
+000016c0  _coreDisableRamEcc_                 
+00001680  _coreEnableEventBusExport_          
+000016d8  _coreEnableFlashEcc_                
+0000170c  _coreEnableIrqVicOffset_            
+000016b0  _coreEnableRamEcc_                  
+00001660  _coreEnableVfp_                     
+00001794  _coreGetAuxiliaryDataFault_         
+000017b0  _coreGetAuxiliaryInstructionFault_  
+0000175c  _coreGetDataFaultAddress_           
+00001724  _coreGetDataFault_                  
+00001778  _coreGetInstructionFaultAddress_    
+00001740  _coreGetInstructionFault_           
+000014f8  _coreInitRegisters_                 
+000015f4  _coreInitStackPointer_              
+000017d4  _disable_FIQ_interrupt_             
+000017dc  _disable_IRQ_interrupt_             
+000017cc  _disable_interrupt_                 
+000017e4  _enable_interrupt_                  
+00001640  _getCPSRValue_                      
+00001648  _gotoCPUIdle_                       
+000023ec  _memoryInit_                        
+UNDEFED   _system_post_cinit                  
+00002455  abort                               
+00001e2c  adc1Group0Interrupt                 
+00001e78  adc1Group1Interrupt                 
+00001ec4  adc1Group2Interrupt                 
+00001f10  adc2Group0Interrupt                 
+00001f5c  adc2Group1Interrupt                 
+00001fa8  adc2Group2Interrupt                 
+00001478  adcDisableNotification              
+00001428  adcEnableNotification               
+00001294  adcGetData                          
+000010b8  adcInit                             
+000013f8  adcIsConversionComplete             
+000013c8  adcIsFifoFull                       
+00002370  adcNotification                     
+0000126c  adcResetFiFo                        
+000011c0  adcStartConversion                  
+00001244  adcStopConversion                   
+08001518  adc_data                            
+ffffffff  binit                               
+00000e6c  calcTemp                            
+00000d58  checkForRequest                     
+00000d0c  delayLoop                           
+08001544  errno                               
+00002340  esmGroup1Notification               
+00002350  esmGroup2Notification               
+0000218c  esmHighInterrupt                    
+08001528  fLight                              
+0800152c  fTemperature                        
+00002014  gioHighLevelInterrupt               
+00002074  gioLowLevelInterrupt                
+00002384  gioNotification                     
+00001004  integerToArr                        
+08001540  isMessageRcvd                       
+08001530  light                               
+000017ed  log                                 
+000017ed  logl                                
+00000c58  main                                
+00002239  memcpy                              
+0800153c  msgNum                              
+00002458  phantomInterrupt                    
+08001534  rcvdData                            
+0800153e  request                             
+00001a40  rtiCompare0Interrupt                
+00001a88  rtiCompare1Interrupt                
+00001ad0  rtiCompare2Interrupt                
+00001b18  rtiCompare3Interrupt                
+00002360  rtiNotification                     
+00001bf0  rtiOverflow1Interrupt               
+00001ba8  rtiOverflow5Interrupt               
+00001b60  rtiTimebaseInterrupt                
+00000020  sci1HighLevelInterrupt              
+000001cc  sci1LowLevelInterrupt               
+00000378  sci2HighLevelInterrupt              
+00000524  sci2LowLevelInterrupt               
+00000ba0  sciDisableNotification              
+00000b38  sciEnableNotification               
+00000720  sciInit                             
+000009e8  sciIsRxReady                        
+00000890  sciIsTxReady                        
+00000ca8  sciNotification                     
+00000a60  sciReceive                          
+00000a34  sciReceiveByte                      
+00000a04  sciRxError                          
+000008dc  sciSend                             
+000008ac  sciSendByte                         
+00000814  sciSetBaudrate                      
+000007f4  sciSetFunctional                    
+00001c3c  systemInit                          
+00001db8  systemPowerDown                     
+08001538  temperature                         
+00000efc  updateSensorData                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                
+-------   ----                                
+00000000  __TI_static_base__                  
+00000020  sci1HighLevelInterrupt              
+000001cc  sci1LowLevelInterrupt               
+00000378  sci2HighLevelInterrupt              
+00000524  sci2LowLevelInterrupt               
+00000720  sciInit                             
+000007f4  sciSetFunctional                    
+00000814  sciSetBaudrate                      
+00000890  sciIsTxReady                        
+000008ac  sciSendByte                         
+000008dc  sciSend                             
+000009e8  sciIsRxReady                        
+00000a04  sciRxError                          
+00000a34  sciReceiveByte                      
+00000a60  sciReceive                          
+00000b38  sciEnableNotification               
+00000ba0  sciDisableNotification              
+00000c58  main                                
+00000ca8  sciNotification                     
+00000d0c  delayLoop                           
+00000d58  checkForRequest                     
+00000e6c  calcTemp                            
+00000efc  updateSensorData                    
+00001004  integerToArr                        
+000010b8  adcInit                             
+000011c0  adcStartConversion                  
+00001244  adcStopConversion                   
+0000126c  adcResetFiFo                        
+00001294  adcGetData                          
+000013c8  adcIsFifoFull                       
+000013f8  adcIsConversionComplete             
+00001428  adcEnableNotification               
+00001478  adcDisableNotification              
+000014f8  _coreInitRegisters_                 
+000015f4  _coreInitStackPointer_              
+00001640  _getCPSRValue_                      
+00001648  _gotoCPUIdle_                       
+00001660  _coreEnableVfp_                     
+00001680  _coreEnableEventBusExport_          
+00001698  _coreDisableEventBusExport_         
+000016b0  _coreEnableRamEcc_                  
+000016c0  _coreDisableRamEcc_                 
+000016d8  _coreEnableFlashEcc_                
+000016f4  _coreDisableFlashEcc_               
+0000170c  _coreEnableIrqVicOffset_            
+00001724  _coreGetDataFault_                  
+0000172c  _coreClearDataFault_                
+00001740  _coreGetInstructionFault_           
+00001748  _coreClearInstructionFault_         
+0000175c  _coreGetDataFaultAddress_           
+00001764  _coreClearDataFaultAddress_         
+00001778  _coreGetInstructionFaultAddress_    
+00001780  _coreClearInstructionFaultAddress_  
+00001794  _coreGetAuxiliaryDataFault_         
+0000179c  _coreClearAuxiliaryDataFault_       
+000017b0  _coreGetAuxiliaryInstructionFault_  
+000017b8  _coreClearAuxiliaryInstructionFault_
+000017cc  _disable_interrupt_                 
+000017d4  _disable_FIQ_interrupt_             
+000017dc  _disable_IRQ_interrupt_             
+000017e4  _enable_interrupt_                  
+000017ed  log                                 
+000017ed  logl                                
+00001a40  rtiCompare0Interrupt                
+00001a88  rtiCompare1Interrupt                
+00001ad0  rtiCompare2Interrupt                
+00001b18  rtiCompare3Interrupt                
+00001b60  rtiTimebaseInterrupt                
+00001ba8  rtiOverflow5Interrupt               
+00001bf0  rtiOverflow1Interrupt               
+00001c3c  systemInit                          
+00001db8  systemPowerDown                     
+00001e2c  adc1Group0Interrupt                 
+00001e78  adc1Group1Interrupt                 
+00001ec4  adc1Group2Interrupt                 
+00001f10  adc2Group0Interrupt                 
+00001f5c  adc2Group1Interrupt                 
+00001fa8  adc2Group2Interrupt                 
+00002014  gioHighLevelInterrupt               
+00002074  gioLowLevelInterrupt                
+000020dc  _c_int00                            
+0000218c  esmHighInterrupt                    
+00002239  __aeabi_memcpy                      
+00002239  __aeabi_memcpy4                     
+00002239  __aeabi_memcpy8                     
+00002239  memcpy                              
+000022d5  __TI_decompress_lzss                
+00002340  esmGroup1Notification               
+00002350  esmGroup2Notification               
+00002360  rtiNotification                     
+00002370  adcNotification                     
+00002384  gioNotification                     
+000023a9  __TI_auto_init_nobinit_nopinit      
+000023ec  _memoryInit_                        
+00002421  __TI_zero_init_nomemset             
+0000243d  __TI_decompress_none                
+0000244d  __aeabi_errno_addr                  
+00002455  C$$EXIT                             
+00002455  abort                               
+00002458  phantomInterrupt                    
+00002598  __TI_Handler_Table_Base             
+000025a4  __TI_Handler_Table_Limit            
+000025b8  __TI_CINIT_Base                     
+000025c8  __TI_CINIT_Limit                    
+08001500  __start___llvm_prf_cnts             
+08001500  __stop___llvm_prf_cnts              
+08001518  adc_data                            
+08001528  fLight                              
+0800152c  fTemperature                        
+08001530  light                               
+08001534  rcvdData                            
+08001538  temperature                         
+0800153c  msgNum                              
+0800153e  request                             
+08001540  isMessageRcvd                       
+08001544  errno                               
+ffffffff  __TI_pprof_out_hndl                 
+ffffffff  __TI_prof_data_size                 
+ffffffff  __TI_prof_data_start                
+ffffffff  __binit__                           
+ffffffff  __c_args__                          
+ffffffff  binit                               
+UNDEFED   _system_post_cinit                  
+
+[123 symbols]
