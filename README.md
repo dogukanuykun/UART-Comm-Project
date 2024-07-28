@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # UART Communication Project
 
 This project demonstrates a UART communication system using the TMS570LS20216SZWT microcontroller. It includes handling temperature and light sensor data and responding to various types of requests via the Serial Communication Interface (SCI).
