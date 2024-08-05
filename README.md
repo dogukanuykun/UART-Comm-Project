@@ -42,12 +42,6 @@ Once the project is uploaded to the microcontroller, it will begin to:
 2. Continuously check for incoming requests.
 3. Process the requests and send the appropriate sensor data responses.
 
-## Code Overview
-
-### Main Function
-
-The `main` function initializes the system, enabling interrupts, initializing the SCI and ADC modules, and starting ADC conversions. It continuously checks for received messages and processes them.
-
 ### Data Structures
 
 Several data structures are used to handle the different types of messages and sensor data:
