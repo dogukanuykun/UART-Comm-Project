@@ -71,6 +71,3 @@ This project is licensed under the terms of the MIT license. See the LICENSE fil
 For more detailed information about the TMS570 microcontroller peripheral drivers, refer to the [Texas Instruments documentation](https://www.ti.com).
 
 =======
-# UART Communication Project
- 
->>>>>>> c96b329 (include source code)
